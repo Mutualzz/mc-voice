@@ -44,7 +44,7 @@ See [`LICENSE`](./LICENSE). Contact [mutualzz.com](https://mutualzz.com) for par
 2. Download these jars (matching your Minecraft version):
    - **Fabric API** — [Modrinth](https://modrinth.com/mod/fabric-api)
    - **Amecs** — [Modrinth](https://modrinth.com/mod/amecs)
-   - **Mutualzz Voice** — official `mutualzz-voice-1.0.0.jar` from Mutualzz (not third-party mirrors)
+   - **Mutualzz Voice** — official jar from [Modrinth](https://modrinth.com) or the Mutualzz GitHub Release **Mutualzz Minecraft v…** (tag `minecraft-v…`; same GitHub release as the Bridge plugin — not unofficial mirrors)
 3. Put **all three** jars in your Minecraft `mods` folder.
    - Prism / MultiMC / CurseForge: open the instance → Mods folder  
    - Vanilla launcher: `.minecraft/mods`
