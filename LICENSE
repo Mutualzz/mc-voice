@@ -1,0 +1,61 @@
+Mutualzz Proprietary License
+
+Copyright (c) Mutualzz. All rights reserved.
+
+This software (including source code, binaries, and documentation) is the
+property of Mutualzz.
+
+PERMISSION TO USE
+  You may install and use official Mutualzz Bridge / Mutualzz Voice builds
+  solely to connect Minecraft servers and clients to Mutualzz's hosted
+  services, in accordance with Mutualzz's terms of service.
+
+SOURCE VIEWING & CONTRIBUTIONS
+  Source code may be made available for transparency, personal review, and
+  community contributions.
+
+  You may fork this repository and submit pull requests / patches back to
+  Mutualzz. By submitting a contribution, you grant Mutualzz a perpetual,
+  worldwide, royalty-free, irrevocable license to use, modify, and
+  distribute your contribution as part of Mutualzz products under this
+  license (or any Mutualzz license Mutualzz chooses for the project).
+
+  Temporary forks used only to develop and propose contributions are allowed.
+  Public forks must not be presented as official Mutualzz releases, and must
+  not redistribute built jars for general use.
+
+CONTRIBUTOR CREDIT
+  Mutualzz will credit contributors for merged work. Credit is typically
+  given through git history (author name and email on commits), GitHub pull
+  request attribution, and release notes or changelogs when practical.
+  Contributors remain free to list Mutualzz contributions in their own
+  portfolios and résumés. Granting Mutualzz a license to your contribution
+  does not waive credit or misattribute your work as solely Mutualzz-
+  authored when credit is reasonably due.
+
+PROHIBITED WITHOUT PRIOR WRITTEN PERMISSION FROM MUTUALZZ
+  - Redistributing this software or modified versions as general-purpose
+    downloads (jars, installers, or "unofficial builds")
+  - Publishing builds to Modrinth, CurseForge, GitHub Releases, or similar
+    for others to install
+  - Operating or offering a third-party Mutualzz-compatible hub / bridge
+    service using this software
+  - Removing or altering copyright, license, or branding notices
+
+MODIFICATIONS
+  Personal, private modifications for your own Minecraft client or server are
+  allowed only when used with Mutualzz's official hub. You may not distribute
+  those modifications except by contributing them upstream to Mutualzz.
+
+COMMERCIAL USE
+  Commercial Minecraft servers may use official builds with a valid Mutualzz
+  bridge token. Resale or bundling of this software requires a separate
+  written agreement.
+
+NO WARRANTY
+  THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. MUTUALZZ
+  IS NOT LIABLE FOR ANY DAMAGES ARISING FROM ITS USE.
+
+To request redistribution or partnership rights, contact Mutualzz
+(https://mutualzz.com).
+
