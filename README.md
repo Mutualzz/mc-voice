@@ -69,7 +69,7 @@ You can also use shortcuts (rebind under **Options → Controls → Mutualzz Voi
 |---|---|
 | **Ctrl+O** | Voice settings |
 | **Ctrl+M** | Mute mic |
-| **Ctrl+D** | Deafen |
+| **Ctrl+Shift+D** | Deafen |
 | **Ctrl+H** | Show / hide who’s talking |
 | **Ctrl+I** | Switch voice activity ↔ push-to-talk |
 | **V** (hold) | Talk in push-to-talk mode |
@@ -86,7 +86,7 @@ Settings are saved in `config/mutualzz_voice.json`.
 ## Troubleshooting
 
 - **No green HUD after `/mzvoice join`** — Confirm Fabric API + Amecs are loaded, and the server has Mutualzz Bridge online.
-- **Joined but can’t hear anyone** — Check output volume in **Ctrl+O**, and that you’re not deafened (**Ctrl+D**).
+- **Joined but can’t hear anyone** — Check output volume in **Ctrl+O**, and that you’re not deafened (**Ctrl+Shift+D**).
 - **Nobody can hear you** — Unmute (**Ctrl+M**), raise mic sensitivity, or switch to push-to-talk and hold **V**.
 - **Kicked / left and it keeps reconnecting** — Update to the latest official mod; session ends cleanly when you’re removed from the channel.
 - **Wrong Minecraft version** — This mod only supports **26.1.x**.

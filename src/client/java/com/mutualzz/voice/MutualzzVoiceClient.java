@@ -71,7 +71,7 @@ public final class MutualzzVoiceClient implements ClientModInitializer {
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_D,
                 CATEGORY,
-                CTRL
+                CTRL_SHIFT
         ));
 
         speakingHudKey = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
