@@ -191,7 +191,7 @@ public final class VoiceSession {
 
             mic = new MicCapture(pcm -> {
                 if (!connected) return;
-                byte[] framed = applyMicSensitivity(pcm);
+                byte[] framed = applyMicSensitivity(RnnoiseDenoiser.get().processFrame(pcm));
                 String selfId = SpeakingTracker.get().selfId();
                 if (!isMicSilenced() && !selfId.isEmpty()) {
                     SpeakingTracker.get().notePcm(selfId, framed);
@@ -269,6 +269,7 @@ public final class VoiceSession {
             mic.stop();
             mic = null;
         }
+        RnnoiseDenoiser.get().close();
         if (speakers != null) {
             speakers.stop();
             speakers = null;

@@ -11,6 +11,10 @@ base {
 
 repositories {
     mavenCentral()
+    maven {
+        name = "henkelmax"
+        url = uri("https://maven.maxhenkel.de/repository/public")
+    }
     exclusiveContent {
         forRepository {
             maven("https://api.modrinth.com/maven")
@@ -36,6 +40,9 @@ dependencies {
     minecraft("com.mojang:minecraft:${property("minecraft_version")}")
     implementation("net.fabricmc:fabric-loader:${property("loader_version")}")
     implementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
+
+    // RNNoise (same stack as Simple Voice Chat) — natives nested via Loom JiJ.
+    include(implementation("de.maxhenkel.rnnoise4j:rnnoise4j:2.1.2")!!)
 
     // Amecs API jars (extracted from the Modrinth bundle JiJ). See libs/README.
     "clientCompileOnly"(fileTree("libs") { include("amecs-*.jar") })

@@ -34,6 +34,8 @@ public final class VoiceSettings {
     private volatile float micSensitivity = 1.0f;
     private volatile InputMode inputMode = InputMode.VOICE;
     private volatile boolean speakingHudVisible = true;
+    /** RNNoise on uplink; default on (falls back if natives missing). */
+    private volatile boolean noiseSuppression = true;
     private final Map<String, Float> userVolumes = new ConcurrentHashMap<>();
     private final Set<String> mutedUsers = ConcurrentHashMap.newKeySet();
     private volatile String selectedUserId = "";
@@ -72,6 +74,15 @@ public final class VoiceSettings {
 
     public void toggleSpeakingHudVisible() {
         setSpeakingHudVisible(!speakingHudVisible);
+    }
+
+    public boolean noiseSuppression() {
+        return noiseSuppression;
+    }
+
+    public void setNoiseSuppression(boolean enabled) {
+        noiseSuppression = enabled;
+        save();
     }
 
     public String selectedUserId() {
@@ -174,6 +185,9 @@ public final class VoiceSettings {
             if (obj.has("speakingHudVisible")) {
                 speakingHudVisible = obj.get("speakingHudVisible").getAsBoolean();
             }
+            if (obj.has("noiseSuppression")) {
+                noiseSuppression = obj.get("noiseSuppression").getAsBoolean();
+            }
             userVolumes.clear();
             if (obj.has("userVolumes") && obj.get("userVolumes").isJsonObject()) {
                 JsonObject vols = obj.getAsJsonObject("userVolumes");
@@ -201,6 +215,7 @@ public final class VoiceSettings {
             obj.addProperty("micSensitivity", micSensitivity);
             obj.addProperty("inputMode", inputMode == InputMode.PTT ? "ptt" : "voice");
             obj.addProperty("speakingHudVisible", speakingHudVisible);
+            obj.addProperty("noiseSuppression", noiseSuppression);
             JsonObject vols = new JsonObject();
             for (Map.Entry<String, Float> e : userVolumes.entrySet()) {
                 vols.addProperty(e.getKey(), e.getValue());

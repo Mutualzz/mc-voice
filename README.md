@@ -61,7 +61,9 @@ When you’re connected, a green **Mutualzz Voice** label appears in the top-lef
 
 ## Controls
 
-Open the settings screen anytime with **Ctrl+O** (volume, mic, PTT, mute, per-user).
+Open the settings screen anytime with **Ctrl+O** (volume, mic, PTT, mute, noise suppression, per-user).
+
+**Noise suppression** (RNNoise, same approach as Simple Voice Chat) is **on by default**. Toggle it in **Ctrl+O**. If natives fail to load on your OS, the option is hidden and the mic still works without it.
 
 You can also use shortcuts (rebind under **Options → Controls → Mutualzz Voice**):
 

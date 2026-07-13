@@ -77,6 +77,19 @@ public final class VoiceSettingsScreen extends Screen {
                     settings.setSpeakingHudVisible(value);
                 }));
 
+        boolean rnnoiseOk = RnnoiseDenoiser.get().isAvailable();
+        if (rnnoiseOk) {
+            body.addChild(CycleButton.onOffBuilder(settings.noiseSuppression())
+                    .create(0, 0, 280, 20, Component.literal("Noise suppression"), (btn, value) -> {
+                        settings.setNoiseSuppression(value);
+                    }));
+        } else {
+            body.addChild(new StringWidget(
+                    Component.literal("Noise suppression unavailable (natives)"),
+                    font
+            ));
+        }
+
         LinearLayout selfRow = LinearLayout.horizontal().spacing(6);
         muteSelfButton = Button.builder(muteSelfLabel(), b -> {
             VoiceSession.setMuted(!VoiceSession.isMuted());
