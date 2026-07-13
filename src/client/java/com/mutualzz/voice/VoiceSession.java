@@ -49,6 +49,7 @@ public final class VoiceSession {
     private static volatile boolean sessionWanted;
     private static volatile String lastAudioWsUrl;
     private static volatile String lastAudioToken;
+    private static volatile String pendingRedirectUrl;
     private static volatile String channelLabel = "";
     private static volatile String roomName = "";
     private static final AtomicInteger reconnectAttempt = new AtomicInteger(0);
@@ -166,9 +167,7 @@ public final class VoiceSession {
 
         URI uri = null;
         try {
-            String sep = audioWsUrl.contains("?") ? "&" : "?";
-            String raw = audioWsUrl + sep + "token=" + audioToken;
-            raw = raw.replace("://localhost", "://127.0.0.1");
+            String raw = audioWsUrl.replace("://localhost", "://127.0.0.1");
             uri = URI.create(raw);
 
             speakers = new SpeakerPlayback();
@@ -178,6 +177,7 @@ public final class VoiceSession {
                     .connectTimeout(java.time.Duration.ofSeconds(5))
                     .build();
             socket = client.newWebSocketBuilder()
+                    .header("Authorization", "Bearer " + audioToken)
                     .buildAsync(uri, new Listener())
                     .join();
 
@@ -185,8 +185,8 @@ public final class VoiceSession {
             state = ConnectionState.CONNECTED;
             reconnectAttempt.set(0);
             pendingControlJson = null;
+            pendingRedirectUrl = null;
             startUplinkSender();
-            // Push current mute/deaf so the Mutualzz app UI is correct after (re)join.
             syncVoiceStateToServer();
 
             mic = new MicCapture(pcm -> {
@@ -242,6 +242,7 @@ public final class VoiceSession {
             sessionWanted = false;
             lastAudioWsUrl = null;
             lastAudioToken = null;
+            pendingRedirectUrl = null;
             channelLabel = "";
             roomName = "";
             cancelReconnectThread();
@@ -308,11 +309,17 @@ public final class VoiceSession {
      * Hub closed the session on purpose (kick / leave / revoked token). Do not reconnect.
      */
     private static boolean isPermanentDisconnect(int statusCode, String reason) {
-        if (statusCode == 4001 || statusCode == 4002 || statusCode == 4003) {
+        if (statusCode == 4001 || statusCode == 4002) {
             return true;
+        }
+        if (statusCode == 4003) {
+            return pendingRedirectUrl == null;
         }
         if (reason == null || reason.isBlank()) return false;
         String r = reason.trim().toLowerCase(Locale.ROOT);
+        if (r.equals("wrong_instance") && pendingRedirectUrl != null) {
+            return false;
+        }
         return r.equals("leave")
                 || r.equals("kicked")
                 || r.equals("invalid_token")
@@ -454,6 +461,13 @@ public final class VoiceSession {
                         tracker.setSelfId(obj.get("userId").getAsString());
                     }
                 }
+                case "redirect" -> {
+                    if (obj.has("audioWsUrl")) {
+                        String redirectUrl = obj.get("audioWsUrl").getAsString();
+                        pendingRedirectUrl = redirectUrl;
+                        lastAudioWsUrl = redirectUrl;
+                    }
+                }
                 case "roster" -> {
                     if (obj.has("selfId")) {
                         tracker.setSelfId(obj.get("selfId").getAsString());
@@ -551,6 +565,16 @@ public final class VoiceSession {
             socket = null;
             if (!sessionWanted) {
                 state = ConnectionState.IDLE;
+                return CompletableFuture.completedFuture(null);
+            }
+            if (statusCode == 4003 && pendingRedirectUrl != null) {
+                String url = pendingRedirectUrl;
+                String token = lastAudioToken;
+                pendingRedirectUrl = null;
+                lastAudioWsUrl = url;
+                if (token != null) {
+                    Minecraft.getInstance().execute(() -> join(url, token, true));
+                }
                 return CompletableFuture.completedFuture(null);
             }
             if (isPermanentDisconnect(statusCode, reason)) {
