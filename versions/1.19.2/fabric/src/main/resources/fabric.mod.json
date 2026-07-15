@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "mutualzz_voice",
+  "version": "${version}",
+  "name": "Mutualzz Voice",
+  "description": "In-game mic and speakers for Mutualzz voice channels. Requires the MutualzzBridge Paper plugin on the server.",
+  "authors": [
+    "Mutualzz"
+  ],
+  "contact": {
+    "homepage": "https://mutualzz.com",
+    "sources": "https://github.com/mutualzz/mutualzz"
+  },
+  "license": "LicenseRef-Mutualzz-Proprietary",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.mutualzz.voice.MutualzzVoiceClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": "~1.19.2",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

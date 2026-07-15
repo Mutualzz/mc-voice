@@ -1,94 +1,70 @@
-# Mutualzz Voice (client mod)
+# Mutualzz Voice
 
-Hear and talk in Mutualzz voice **from inside Minecraft**.
+Talk in Mutualzz voice **from inside Minecraft**. Client mod — the server needs [Mutualzz Bridge](../mc-bridge).
 
-This is a **Fabric client mod** for your PC. The server needs the official [Mutualzz Bridge](../mc-bridge) plugin, which connects to **Mutualzz’s hosted hub**.
+Without this mod you can still `/mzvoice join` for presence in the Mutualzz app; you just won’t get in-game audio.
 
-Without this mod you can still `/mzvoice join` for presence in the Mutualzz app — you just won’t get in-game audio.
+## License
 
----
+Official builds only. Forks/PRs welcome (see [`CONTRIBUTING.md`](./CONTRIBUTING.md)). No redistributing jars without permission — see [`LICENSE`](./LICENSE).
 
-## License & redistribution
+## Supported versions
 
-Source is available for transparency and **community contributions**. That is **not** permission to redistribute builds.
+Use the jar that matches **your Minecraft version and loader**.
 
-**You may:**
+| Minecraft | Fabric | NeoForge | Forge |
+|-----------|--------|----------|-------|
+| 1.18.2 | yes | — | yes |
+| 1.19.2 | yes | — | yes |
+| 1.19.4 | yes | — | yes |
+| 1.20.1 | yes | — | yes |
+| 1.20.4 | yes | yes | — |
+| 1.21.1 | yes | yes | — |
+| 1.21.4 | yes | yes | — |
+| 26.1.2 | yes | yes | — |
 
-- Install official builds and use them with Mutualzz Bridge on a server linked to Mutualzz
-- Fork the repo and open pull requests — contributors get credit (see [`CONTRIBUTING.md`](./CONTRIBUTING.md))
+- **Fabric** — also need [Fabric API](https://modrinth.com/mod/fabric-api). On **26.1.2**, also [Amecs](https://modrinth.com/mod/amecs).
+- **Server** — Mutualzz Bridge, account linked, voice room bound.
 
-**You may not** (without written permission from Mutualzz):
+## Install
 
-- Re-upload or share general-purpose jars / unofficial builds
-- Publish it on Modrinth, CurseForge, GitHub Releases, etc. for others to install
-- Bundle it in public modpacks without permission
+1. Install Fabric, NeoForge, or Forge for your Minecraft version.
+2. Download the matching Mutualzz Voice jar from [Modrinth](https://modrinth.com) or the GitHub release `minecraft-v…` (same release as Bridge).
+3. Put it in `mods/` (plus Fabric API / Amecs if needed).
+4. Join a server with Mutualzz Bridge → `/mzlink` → `/mzvoice join` (optional room: `/mzvoice join lobby`). Leave with `/mzvoice leave`.
 
-See [`LICENSE`](./LICENSE). Contact [mutualzz.com](https://mutualzz.com) for partnership rights.
-
----
-
-## What you need
-
-| | |
-|---|---|
-| Minecraft | **26.1.x** (same version as the server) |
-| Loader | [Fabric Loader](https://fabricmc.net/use/) **0.19.3+** |
-| Required mods | [Fabric API](https://modrinth.com/mod/fabric-api) and [Amecs](https://modrinth.com/mod/amecs) |
-| Server | Official Mutualzz Bridge, your account linked, a voice room bound in Mutualzz |
-
----
-
-## Install (players)
-
-1. Install a **Fabric** profile for Minecraft **26.1.x** (use the [Fabric installer](https://fabricmc.net/use/) or a launcher that supports Fabric).
-2. Download these jars (matching your Minecraft version):
-   - **Fabric API** — [Modrinth](https://modrinth.com/mod/fabric-api)
-   - **Amecs** — [Modrinth](https://modrinth.com/mod/amecs)
-   - **Mutualzz Voice** — official jar from [Modrinth](https://modrinth.com) or the Mutualzz GitHub Release **Mutualzz Minecraft v…** (tag `minecraft-v…`; same GitHub release as the Bridge plugin — not unofficial mirrors)
-3. Put **all three** jars in your Minecraft `mods` folder.
-   - Prism / MultiMC / CurseForge: open the instance → Mods folder  
-   - Vanilla launcher: `.minecraft/mods`
-4. Launch Minecraft with the Fabric profile.
-5. Join a server that has Mutualzz Bridge.
-6. Link your account if you haven’t: `/mzlink` (follow the code in Mutualzz settings).
-7. Join voice: `/mzvoice join`  
-   Optional room name: `/mzvoice join lobby` (tab-complete shows rooms bound on that server).  
-   Leave with `/mzvoice leave`.
-
-When you’re connected, a green **Mutualzz Voice** label appears in the top-left of the screen.
-
----
+A green **Mutualzz Voice** label shows in the top-left when connected. Settings: **Ctrl+O** (`config/mutualzz_voice.json`).
 
 ## Controls
 
-Open the settings screen anytime with **Ctrl+O** (volume, mic, PTT, mute, noise suppression, per-user).
-
-**Noise suppression** (RNNoise, same approach as Simple Voice Chat) is **on by default**. Toggle it in **Ctrl+O**. If natives fail to load on your OS, the option is hidden and the mic still works without it.
-
-You can also use shortcuts (rebind under **Options → Controls → Mutualzz Voice**):
+Rebind under **Options → Controls → Mutualzz Voice**. On NeoForge/Forge, some binds use **Alt** instead of **Ctrl+Shift**.
 
 | Key | Action |
 |---|---|
 | **Ctrl+O** | Voice settings |
 | **Ctrl+M** | Mute mic |
-| **Ctrl+Shift+D** | Deafen |
+| **Ctrl+Shift+D** / **Alt+D** | Deafen |
 | **Ctrl+H** | Show / hide who’s talking |
-| **Ctrl+I** | Switch voice activity ↔ push-to-talk |
-| **V** (hold) | Talk in push-to-talk mode |
-| **Ctrl+=** / **Ctrl+-** | Output volume up / down |
-| **Ctrl+Shift+=** / **Ctrl+Shift+-** | Mic sensitivity up / down |
-| **Ctrl+[** / **Ctrl+]** | Select previous / next user |
-| **Ctrl+↑** / **Ctrl+↓** | That user’s volume |
+| **Ctrl+I** | Voice activity ↔ push-to-talk |
+| **V** (hold) | Talk (push-to-talk) |
+| **Ctrl+=** / **Ctrl+-** | Output volume |
+| **Ctrl+Shift+=/-** / **Alt+=/-** | Mic sensitivity |
+| **Ctrl+[** / **]** | Select user |
+| **Ctrl+↑** / **↓** | That user’s volume |
 | **Ctrl+U** | Mute that user locally |
 
-Settings are saved in `config/mutualzz_voice.json`.
+Noise suppression (RNNoise) is on by default; toggle in **Ctrl+O**.
 
----
+## Build
+
+```bash
+./gradlew buildAll
+```
+
+Jars: `versions/<mc>/<loader>/build/libs/`.
 
 ## Troubleshooting
 
-- **No green HUD after `/mzvoice join`** — Confirm Fabric API + Amecs are loaded, and the server has Mutualzz Bridge online.
-- **Joined but can’t hear anyone** — Check output volume in **Ctrl+O**, and that you’re not deafened (**Ctrl+Shift+D**).
-- **Nobody can hear you** — Unmute (**Ctrl+M**), raise mic sensitivity, or switch to push-to-talk and hold **V**.
-- **Kicked / left and it keeps reconnecting** — Update to the latest official mod; session ends cleanly when you’re removed from the channel.
-- **Wrong Minecraft version** — This mod only supports **26.1.x**.
+- **No HUD** — wrong jar for your MC/loader, or missing Fabric API/Amecs; server needs Bridge.
+- **Can’t hear** — check volume in Ctrl+O; not deafened.
+- **Nobody hears you** — unmute (Ctrl+M), raise mic sensitivity, or hold **V** in PTT.

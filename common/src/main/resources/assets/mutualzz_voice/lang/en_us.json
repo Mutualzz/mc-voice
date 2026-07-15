@@ -1,0 +1,19 @@
+{
+  "key.mutualzz_voice.mute": "Mute Mic",
+  "key.mutualzz_voice.deafen": "Deafen",
+  "key.mutualzz_voice.speaking_hud": "Toggle Who's Talking",
+  "key.mutualzz_voice.ptt": "Push to Talk (Hold)",
+  "key.mutualzz_voice.input_mode": "Toggle Voice / Push-to-Talk",
+  "key.mutualzz_voice.volume_up": "Output Volume Up",
+  "key.mutualzz_voice.volume_down": "Output Volume Down",
+  "key.mutualzz_voice.mic_sens_up": "Mic Sensitivity Up",
+  "key.mutualzz_voice.mic_sens_down": "Mic Sensitivity Down",
+  "key.mutualzz_voice.select_next": "Select Next User",
+  "key.mutualzz_voice.select_prev": "Select Previous User",
+  "key.mutualzz_voice.user_volume_up": "Selected User Volume Up",
+  "key.mutualzz_voice.user_volume_down": "Selected User Volume Down",
+  "key.mutualzz_voice.user_mute": "Mute Selected User Locally",
+  "key.mutualzz_voice.settings": "Open Voice Settings",
+  "key.category.mutualzz_voice.voice": "Mutualzz Voice",
+  "key.categories.mutualzz_voice": "Mutualzz Voice"
+}

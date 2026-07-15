@@ -1,79 +1,32 @@
-plugins {
-    id("net.fabricmc.fabric-loom") version "1.17-SNAPSHOT"
-    id("maven-publish")
+// Root aggregator — versions/<minecraft>/<loader>/
+// Build: ./gradlew buildAll
+// Release targets: scripts/matrix-targets.json
+
+tasks.register("buildAll") {
+    dependsOn(
+        ":26.1.2-fabric:jar",
+        ":26.1.2-neoforge:jar",
+        ":1.21.4-fabric:remapJar",
+        ":1.21.4-neoforge:jar",
+        ":1.21.1-fabric:remapJar",
+        ":1.21.1-neoforge:jar",
+        ":1.20.4-fabric:remapJar",
+        ":1.20.4-neoforge:remapJar",
+        ":1.20.1-fabric:remapJar",
+        ":1.20.1-forge:remapJar",
+        ":1.19.4-fabric:remapJar",
+        ":1.19.4-forge:remapJar",
+        ":1.19.2-fabric:remapJar",
+        ":1.19.2-forge:remapJar",
+        ":1.18.2-fabric:remapJar",
+        ":1.18.2-forge:remapJar",
+    )
+    group = "build"
+    description = "Build Mutualzz Voice jars for all ready MC×loader cells"
 }
 
-version = project.property("mod_version") as String
-group = project.property("maven_group") as String
-base {
-    archivesName.set(project.property("archives_base_name") as String)
-}
-
-repositories {
-    mavenCentral()
-    maven {
-        name = "henkelmax"
-        url = uri("https://maven.maxhenkel.de/repository/public")
-    }
-    exclusiveContent {
-        forRepository {
-            maven("https://api.modrinth.com/maven")
-        }
-        filter {
-            includeGroup("maven.modrinth")
-        }
-    }
-}
-
-loom {
-    splitEnvironmentSourceSets()
-
-    mods {
-        create("mutualzz_voice") {
-            sourceSet(sourceSets.main.get())
-            sourceSet(sourceSets.getByName("client"))
-        }
-    }
-}
-
-dependencies {
-    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    implementation("net.fabricmc:fabric-loader:${property("loader_version")}")
-    implementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
-
-    // RNNoise (same stack as Simple Voice Chat) — natives nested via Loom JiJ.
-    include(implementation("de.maxhenkel.rnnoise4j:rnnoise4j:2.1.2")!!)
-
-    // Amecs API jars (extracted from the Modrinth bundle JiJ). See libs/README.
-    "clientCompileOnly"(fileTree("libs") { include("amecs-*.jar") })
-    // Full Amecs for runClient — players install Amecs next to this mod (depends: amecsapi).
-    "localRuntime"("maven.modrinth:amecs:${property("amecs_version")}")
-
-    // Dev-only: Microsoft login from runClient (not shipped in the release jar)
-    "clientRuntimeOnly"("maven.modrinth:auth-me:v9.2.1+26.1")
-}
-
-tasks.processResources {
-    val version = project.version
-    inputs.property("version", version)
-    filesMatching("fabric.mod.json") {
-        expand("version" to version)
-    }
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(25))
-    }
-    withSourcesJar()
-}
-
-tasks.withType<JavaCompile>().configureEach {
-    options.release.set(25)
-}
-
-tasks.jar {
-    from("LICENSE") {
-        rename { "${it}_${project.name}" }
-    }
+tasks.register("buildMatrix") {
+    group = "build"
+    description = "Alias for buildAll (see scripts/matrix-targets.json)"
+    dependsOn("buildAll")
 }
