@@ -33,27 +33,27 @@ Use the jar that matches **your Minecraft version and loader**.
 3. Put it in `mods/` (plus Fabric API / Amecs if needed).
 4. Join a server with Mutualzz Bridge → `/mzlink` → `/mzvoice join` (optional room: `/mzvoice join lobby`). Leave with `/mzvoice leave`.
 
-A green **Mutualzz Voice** label shows in the top-left when connected. Settings: **Ctrl+O** (`config/mutualzz_voice.json`).
+A green **Mutualzz Voice** label shows in the top-left when connected. Settings: **Alt+O** (`config/mutualzz_voice.json`).
 
 ## Controls
 
-Rebind under **Options → Controls → Mutualzz Voice**. On NeoForge/Forge, some binds use **Alt** instead of **Ctrl+Shift**.
+Rebind under **Options → Controls → Mutualzz Voice**. On NeoForge/Forge, some binds use **Shift** instead of **Alt+Shift** (loader limit — single modifier only).
 
 | Key | Action |
 |---|---|
-| **Ctrl+O** | Voice settings |
-| **Ctrl+M** | Mute mic |
-| **Ctrl+Shift+D** / **Alt+D** | Deafen |
-| **Ctrl+H** | Show / hide who’s talking |
-| **Ctrl+I** | Voice activity ↔ push-to-talk |
+| **Alt+O** | Voice settings |
+| **Alt+M** | Mute mic |
+| **Alt+Shift+D** / **Shift+D** | Deafen |
+| **Alt+H** | Show / hide who’s talking |
+| **Alt+I** | Voice activity ↔ push-to-talk |
 | **V** (hold) | Talk (push-to-talk) |
-| **Ctrl+=** / **Ctrl+-** | Output volume |
-| **Ctrl+Shift+=/-** / **Alt+=/-** | Mic sensitivity |
-| **Ctrl+[** / **]** | Select user |
-| **Ctrl+↑** / **↓** | That user’s volume |
-| **Ctrl+U** | Mute that user locally |
+| **Alt+=** / **Alt+-** | Output volume |
+| **Alt+Shift+=/-** / **Shift+=/-** | Mic sensitivity |
+| **Alt+[** / **]** | Select user |
+| **Alt+↑** / **↓** | That user’s volume |
+| **Alt+U** | Mute that user locally |
 
-Noise suppression (RNNoise) is on by default; toggle in **Ctrl+O**.
+Noise suppression (RNNoise) is on by default; toggle in **Alt+O**.
 
 ## Build
 
@@ -66,5 +66,5 @@ Jars: `versions/<mc>/<loader>/build/libs/`.
 ## Troubleshooting
 
 - **No HUD** — wrong jar for your MC/loader, or missing Fabric API/Amecs; server needs Bridge.
-- **Can’t hear** — check volume in Ctrl+O; not deafened.
-- **Nobody hears you** — unmute (Ctrl+M), raise mic sensitivity, or hold **V** in PTT.
+- **Can’t hear** — check volume in Alt+O; not deafened.
+- **Nobody hears you** — unmute (Alt+M), raise mic sensitivity, or hold **V** in PTT.

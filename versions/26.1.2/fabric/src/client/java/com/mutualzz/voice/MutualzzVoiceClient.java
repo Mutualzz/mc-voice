@@ -17,10 +17,10 @@ import com.mojang.blaze3d.platform.InputConstants;
 import org.lwjgl.glfw.GLFW;
 
 public final class MutualzzVoiceClient implements ClientModInitializer {
-    private static final AmecsKeyModifierCombination CTRL =
-            new AmecsKeyModifierCombination(AmecsKeyModifiers.CONTROL);
-    private static final AmecsKeyModifierCombination CTRL_SHIFT =
-            new AmecsKeyModifierCombination(AmecsKeyModifiers.CONTROL, AmecsKeyModifiers.SHIFT);
+    private static final AmecsKeyModifierCombination ALT =
+            new AmecsKeyModifierCombination(AmecsKeyModifiers.ALT);
+    private static final AmecsKeyModifierCombination ALT_SHIFT =
+            new AmecsKeyModifierCombination(AmecsKeyModifiers.ALT, AmecsKeyModifiers.SHIFT);
 
     private static final VoiceClientController.Keys KEYS = new VoiceClientController.Keys();
 
@@ -41,21 +41,21 @@ public final class MutualzzVoiceClient implements ClientModInitializer {
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_M,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.deafen = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.deafen",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_D,
                 VoiceClientController.CATEGORY,
-                CTRL_SHIFT
+                ALT_SHIFT
         ));
         KEYS.speakingHud = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.speaking_hud",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_H,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.ptt = KeyMappingHelper.registerKeyMapping(new KeyMapping(
                 "key.mutualzz_voice.ptt",
@@ -68,77 +68,77 @@ public final class MutualzzVoiceClient implements ClientModInitializer {
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_I,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.volumeUp = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.volume_up",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_EQUAL,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.volumeDown = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.volume_down",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_MINUS,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.micSensUp = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.mic_sens_up",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_EQUAL,
                 VoiceClientController.CATEGORY,
-                CTRL_SHIFT
+                ALT_SHIFT
         ));
         KEYS.micSensDown = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.mic_sens_down",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_MINUS,
                 VoiceClientController.CATEGORY,
-                CTRL_SHIFT
+                ALT_SHIFT
         ));
         KEYS.selectNext = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.select_next",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_RIGHT_BRACKET,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.selectPrev = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.select_prev",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_LEFT_BRACKET,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.userVolumeUp = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.user_volume_up",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_UP,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.userVolumeDown = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.user_volume_down",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_DOWN,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.userMute = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.user_mute",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_U,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
         KEYS.settings = KeyMappingHelper.registerKeyMapping(new AmecsKeyMappingWithKeyModifiers(
                 "key.mutualzz_voice.settings",
                 InputConstants.Type.KEYSYM,
                 GLFW.GLFW_KEY_O,
                 VoiceClientController.CATEGORY,
-                CTRL
+                ALT
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> VoiceClientController.onClientTick(client, KEYS));

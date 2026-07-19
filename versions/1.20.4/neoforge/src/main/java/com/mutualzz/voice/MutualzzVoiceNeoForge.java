@@ -59,9 +59,9 @@ public final class MutualzzVoiceNeoForge {
     }
 
     private void registerKeys(RegisterKeyMappingsEvent event) {
-        KEYS.mute = mapping("key.mutualzz_voice.mute", GLFW.GLFW_KEY_M, KeyModifier.CONTROL);
-        KEYS.deafen = mapping("key.mutualzz_voice.deafen", GLFW.GLFW_KEY_D, KeyModifier.ALT);
-        KEYS.speakingHud = mapping("key.mutualzz_voice.speaking_hud", GLFW.GLFW_KEY_H, KeyModifier.CONTROL);
+        KEYS.mute = mapping("key.mutualzz_voice.mute", GLFW.GLFW_KEY_M, KeyModifier.ALT);
+        KEYS.deafen = mapping("key.mutualzz_voice.deafen", GLFW.GLFW_KEY_D, KeyModifier.SHIFT);
+        KEYS.speakingHud = mapping("key.mutualzz_voice.speaking_hud", GLFW.GLFW_KEY_H, KeyModifier.ALT);
         KEYS.ptt = new KeyMapping(
                 "key.mutualzz_voice.ptt",
                 KeyConflictContext.IN_GAME,
@@ -70,17 +70,17 @@ public final class MutualzzVoiceNeoForge {
                 GLFW.GLFW_KEY_V,
                 VoiceClientController.CATEGORY
         );
-        KEYS.inputMode = mapping("key.mutualzz_voice.input_mode", GLFW.GLFW_KEY_I, KeyModifier.CONTROL);
-        KEYS.volumeUp = mapping("key.mutualzz_voice.volume_up", GLFW.GLFW_KEY_EQUAL, KeyModifier.CONTROL);
-        KEYS.volumeDown = mapping("key.mutualzz_voice.volume_down", GLFW.GLFW_KEY_MINUS, KeyModifier.CONTROL);
-        KEYS.micSensUp = mapping("key.mutualzz_voice.mic_sens_up", GLFW.GLFW_KEY_EQUAL, KeyModifier.ALT);
-        KEYS.micSensDown = mapping("key.mutualzz_voice.mic_sens_down", GLFW.GLFW_KEY_MINUS, KeyModifier.ALT);
-        KEYS.selectNext = mapping("key.mutualzz_voice.select_next", GLFW.GLFW_KEY_RIGHT_BRACKET, KeyModifier.CONTROL);
-        KEYS.selectPrev = mapping("key.mutualzz_voice.select_prev", GLFW.GLFW_KEY_LEFT_BRACKET, KeyModifier.CONTROL);
-        KEYS.userVolumeUp = mapping("key.mutualzz_voice.user_volume_up", GLFW.GLFW_KEY_UP, KeyModifier.CONTROL);
-        KEYS.userVolumeDown = mapping("key.mutualzz_voice.user_volume_down", GLFW.GLFW_KEY_DOWN, KeyModifier.CONTROL);
-        KEYS.userMute = mapping("key.mutualzz_voice.user_mute", GLFW.GLFW_KEY_U, KeyModifier.CONTROL);
-        KEYS.settings = mapping("key.mutualzz_voice.settings", GLFW.GLFW_KEY_O, KeyModifier.CONTROL);
+        KEYS.inputMode = mapping("key.mutualzz_voice.input_mode", GLFW.GLFW_KEY_I, KeyModifier.ALT);
+        KEYS.volumeUp = mapping("key.mutualzz_voice.volume_up", GLFW.GLFW_KEY_EQUAL, KeyModifier.ALT);
+        KEYS.volumeDown = mapping("key.mutualzz_voice.volume_down", GLFW.GLFW_KEY_MINUS, KeyModifier.ALT);
+        KEYS.micSensUp = mapping("key.mutualzz_voice.mic_sens_up", GLFW.GLFW_KEY_EQUAL, KeyModifier.SHIFT);
+        KEYS.micSensDown = mapping("key.mutualzz_voice.mic_sens_down", GLFW.GLFW_KEY_MINUS, KeyModifier.SHIFT);
+        KEYS.selectNext = mapping("key.mutualzz_voice.select_next", GLFW.GLFW_KEY_RIGHT_BRACKET, KeyModifier.ALT);
+        KEYS.selectPrev = mapping("key.mutualzz_voice.select_prev", GLFW.GLFW_KEY_LEFT_BRACKET, KeyModifier.ALT);
+        KEYS.userVolumeUp = mapping("key.mutualzz_voice.user_volume_up", GLFW.GLFW_KEY_UP, KeyModifier.ALT);
+        KEYS.userVolumeDown = mapping("key.mutualzz_voice.user_volume_down", GLFW.GLFW_KEY_DOWN, KeyModifier.ALT);
+        KEYS.userMute = mapping("key.mutualzz_voice.user_mute", GLFW.GLFW_KEY_U, KeyModifier.ALT);
+        KEYS.settings = mapping("key.mutualzz_voice.settings", GLFW.GLFW_KEY_O, KeyModifier.ALT);
 
         event.register(KEYS.mute);
         event.register(KEYS.deafen);

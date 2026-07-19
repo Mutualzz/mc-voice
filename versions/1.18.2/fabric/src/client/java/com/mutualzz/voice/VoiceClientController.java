@@ -95,7 +95,7 @@ public final class VoiceClientController {
         while (keys.userMute.consumeClick()) {
             String id = VoiceSettings.get().selectedUserId();
             if (id.isBlank()) {
-                chat(client, "Select a user first (Ctrl+[ / Ctrl+])");
+                chat(client, "Select a user first (Alt+[ / Alt+])");
             } else {
                 VoiceSettings.get().toggleUserMuted(id);
                 boolean muted = VoiceSettings.get().isUserMuted(id);
@@ -217,7 +217,7 @@ public final class VoiceClientController {
     private static void adjustSelectedUserVolume(float delta, Minecraft client) {
         String id = VoiceSettings.get().selectedUserId();
         if (id.isBlank()) {
-            chat(client, "Select a user first (Ctrl+[ / Ctrl+])");
+            chat(client, "Select a user first (Alt+[ / Alt+])");
             return;
         }
         VoiceSettings.get().adjustUserVolume(id, delta);
