@@ -1,6 +1,6 @@
 # Contributing
 
-PRs welcome. Redistributing unofficial builds is still not allowed — see [`LICENSE`](./LICENSE).
+PRs welcome. Redistributing unofficial builds is still not allowed — see [`LICENSE`](https://github.com/Mutualzz/mc-voice/blob/master/LICENSE).
 
 ## Credit
 

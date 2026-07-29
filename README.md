@@ -1,12 +1,12 @@
 # Mutualzz Voice
 
-Talk in Mutualzz voice **from inside Minecraft**. Client mod — the server needs [Mutualzz Bridge](../mc-bridge).
+Talk in Mutualzz voice **from inside Minecraft**. Client mod — the server needs [Mutualzz Bridge](https://github.com/Mutualzz/mc-bridge).
 
 Without this mod you can still `/mzvoice join` for presence in the Mutualzz app; you just won’t get in-game audio.
 
 ## License
 
-Official builds only. Forks/PRs welcome (see [`CONTRIBUTING.md`](./CONTRIBUTING.md)). No redistributing jars without permission — see [`LICENSE`](./LICENSE).
+Official builds only. Forks/PRs welcome (see [`CONTRIBUTING.md`](https://github.com/Mutualzz/mc-voice/blob/master/CONTRIBUTING.md)). No redistributing jars without permission — see [`LICENSE`](https://github.com/Mutualzz/mc-voice/blob/master/LICENSE).
 
 ## Supported versions
 
