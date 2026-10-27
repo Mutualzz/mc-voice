@@ -1,7 +1,7 @@
 modLoader="javafml"
 loaderVersion="[45,)"
 license="${mod_license}"
-issueTrackerURL="https://github.com/mutualzz/mutualzz/issues"
+issueTrackerURL="https://git.mutualzz.com/mutualzz/mutualzz/issues"
 
 [[mods]]
 modId="${mod_id}"
