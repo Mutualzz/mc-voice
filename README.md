@@ -1,6 +1,6 @@
 <div align="center">
 
-# Mutualzz development moved to [git.mutualzz.com](https://git.mutualzz.com/mutualzz/mutualzz)
+# Mutualzz is developed at [git.mutualzz.com](https://git.mutualzz.com/mutualzz/mc-voice)
 
 **GitHub is a read-only mirror. Issues and pull requests opened on GitHub are not monitored.**
 
@@ -10,13 +10,13 @@ Sign in with your GitHub account. No new password needed.
 
 # Mutualzz Voice
 
-Talk in Mutualzz voice **from inside Minecraft**. Client mod — the server needs [Mutualzz Bridge](https://github.com/Mutualzz/mc-bridge).
+Talk in Mutualzz voice **from inside Minecraft**. Client mod — the server needs [Mutualzz Bridge](https://git.mutualzz.com/mutualzz/mc-bridge).
 
 Without this mod you can still `/mzvoice join` for presence in the Mutualzz app; you just won’t get in-game audio.
 
 ## License
 
-Official builds only. Forks/PRs welcome (see [`CONTRIBUTING.md`](https://github.com/Mutualzz/mc-voice/blob/master/CONTRIBUTING.md)). No redistributing jars without permission — see [`LICENSE`](https://github.com/Mutualzz/mc-voice/blob/master/LICENSE).
+Official builds only. Forks/PRs welcome (see [`CONTRIBUTING.md`](https://git.mutualzz.com/mutualzz/mc-voice/src/branch/master/CONTRIBUTING.md)). No redistributing jars without permission — see [`LICENSE`](https://git.mutualzz.com/mutualzz/mc-voice/src/branch/master/LICENSE).
 
 ## Supported versions
 
@@ -39,7 +39,7 @@ Use the jar that matches **your Minecraft version and loader**.
 ## Install
 
 1. Install Fabric, NeoForge, or Forge for your Minecraft version.
-2. Download the matching Mutualzz Voice jar from [Modrinth](https://modrinth.com) or the GitHub release `minecraft-v…` (same release as Bridge).
+2. Download the matching Mutualzz Voice jar from [Modrinth](https://modrinth.com) or the [official release](https://git.mutualzz.com/mutualzz/mutualzz/releases) `minecraft-v…` (same release as Bridge).
 3. Put it in `mods/` (plus Fabric API / Amecs if needed).
 4. Join a server with Mutualzz Bridge → `/mzlink` → `/mzvoice join` (optional room: `/mzvoice join lobby`). Leave with `/mzvoice leave`.
 
