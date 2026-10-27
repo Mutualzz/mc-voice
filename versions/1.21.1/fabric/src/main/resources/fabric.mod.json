@@ -7,7 +7,7 @@
   "authors": ["Mutualzz"],
   "contact": {
     "homepage": "https://mutualzz.com",
-    "sources": "https://github.com/mutualzz/mutualzz"
+    "sources": "https://git.mutualzz.com/mutualzz/mutualzz"
   },
   "license": "LicenseRef-Mutualzz-Proprietary",
   "environment": "client",
